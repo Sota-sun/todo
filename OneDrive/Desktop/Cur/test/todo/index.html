@@ -25,12 +25,24 @@
         .todo-header {
             display: flex;
             margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .input-group {
+            display: flex;
+            width: 100%;
+            margin-bottom: 10px;
         }
         #new-task {
             flex: 1;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px 0 0 4px;
+        }
+        #due-date {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
         }
         #add-button {
             padding: 10px 15px;
@@ -56,8 +68,20 @@
         li:last-child {
             border-bottom: none;
         }
+        .task-content {
+            flex: 1;
+            margin-left: 10px;
+        }
+        .task-text {
+            display: block;
+        }
+        .due-date-display {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 3px;
+        }
         .delete-btn {
-            margin-left: auto;
+            margin-left: 10px;
             color: #e74c3c;
             background: none;
             border: none;
@@ -67,6 +91,12 @@
             text-decoration: line-through;
             color: #888;
         }
+        .overdue {
+            color: #e74c3c;
+        }
+        .due-soon {
+            color: #f39c12;
+        }
     </style>
 </head>
 <body>
@@ -74,8 +104,11 @@
     
     <div class="todo-container">
         <div class="todo-header">
-            <input type="text" id="new-task" placeholder="新しいタスクを入力...">
-            <button id="add-button">追加</button>
+            <div class="input-group">
+                <input type="text" id="new-task" placeholder="新しいタスクを入力...">
+                <input type="date" id="due-date">
+                <button id="add-button">追加</button>
+            </div>
         </div>
         
         <ul id="task-list">
